@@ -32,16 +32,10 @@ brew install openblas
 Installation
 ------------
 
-You can install the package from [PyPI](https://pypi.python.org/pypi):
+You can install  directly from the Github repository:
 
 ```
-pip install tsne
-```
-
-Or directly from the Github repository:
-
-```
-pip install git+https://github.com/danielfrg/tsne.git
+pip install git+https://github.com/mfcabrera/tsne.git
 ```
 
 Usage
