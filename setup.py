@@ -4,6 +4,7 @@ from distutils.core import setup
 from distutils.extension import Extension
 from Cython.Distutils import build_ext
 import sys
+import os 
 
 DESCRIPTION = 'TSNE implementations for python'
 
@@ -12,9 +13,10 @@ if sys.platform == 'darwin':
     ext_modules = [Extension(
                    name='bh_sne',
                    sources=['tsne/bh_sne_src/quadtree.cpp', 'tsne/bh_sne_src/tsne.cpp', 'tsne/bh_sne.pyx'],
-                   include_dirs=[numpy.get_include(), 'tsne/bh_sne_src/'],
-                   extra_compile_args=['-I/System/Library/Frameworks/vecLib.framework/Headers'],
-                   extra_link_args=['-Wl,-framework', '-Wl,Accelerate', '-lcblas'],
+                   include_dirs=[numpy.get_include(), 'tsne/bh_sne_src/', '/usr/local/opt/openblas/include'],
+                   library_dirs=['/usr/local/opt/openblas/lib'],
+                   extra_compile_args=['-stdlib=libc++', '-mmacosx-version-min=10.9'],
+                   extra_link_args=['-lopenblas', '-stdlib=libc++','-mmacosx-version-min=10.9' ],
                    language='c++')]
 else:
     ext_modules = [Extension(
