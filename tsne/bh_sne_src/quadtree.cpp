@@ -9,7 +9,11 @@
 
 #include <math.h>
 #include <float.h>
-#include <cblas.h>
+#ifdef __APPLE__
+ #include <Accelerate/Accelerate.h>
+#else
+ #include <cblas.h>
+#endif
 #include <stdlib.h>
 #include <stdio.h>
 #include "quadtree.h"

@@ -16,7 +16,7 @@ if sys.platform == 'darwin':
                    include_dirs=[numpy.get_include(), 'tsne/bh_sne_src/', '/usr/local/opt/openblas/include'],
                    library_dirs=['/usr/local/opt/openblas/lib'],
                    extra_compile_args=['-stdlib=libc++', '-mmacosx-version-min=10.9'],
-                   extra_link_args=['-lopenblas', '-stdlib=libc++','-mmacosx-version-min=10.9' ],
+                   extra_link_args=['-stdlib=libc++','-mmacosx-version-min=10.9', '-Wl,-framework', '-Wl,Accelerate', '-lcblas'],
                    language='c++')]
 else:
     ext_modules = [Extension(
