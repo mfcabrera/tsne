@@ -13,7 +13,7 @@ if sys.platform == 'darwin':
     ext_modules = [Extension(
                    name='bh_sne',
                    sources=['tsne/bh_sne_src/quadtree.cpp', 'tsne/bh_sne_src/tsne.cpp', 'tsne/bh_sne.pyx'],
-                   include_dirs=[numpy.get_include(), 'tsne/bh_sne_src/', '/usr/local/opt/openblas/include'],                  
+                   include_dirs=[numpy.get_include(), 'tsne/bh_sne_src/'],                  
                    extra_compile_args=['-stdlib=libc++', '-mmacosx-version-min=10.9'],
                    extra_link_args=['-stdlib=libc++','-mmacosx-version-min=10.9', '-Wl,-framework', '-Wl,Accelerate', '-lcblas'],
                    language='c++')]
